@@ -1,0 +1,34 @@
+<ion-view view-title="版本更新信息">
+	<ion-header-bar align-title="center" class="header_me">
+		<div class="header_box">
+			<h1 class="he_tit">版本更新</h1>
+		</div>
+	</ion-header-bar>
+	<ion-content class="contentContainer">
+		<div class="versionNoBox">
+			<p class="versionNo">当前版本:<span>{{v}}</span></p>
+		</div>
+		<div class="versionNoBox">
+			<p class="newVersionNo">最新版本:<span>{{newVersionNo}}</span></p>
+		</div>
+		<div class="versionNoDes">
+			<p class="vsrtit">新版功能</p>
+			<p class="verDesTxt" ng-repeat="item in versionInfor.editionDesc"><i></i>{{item}}</p>
+		</div>
+		<div class="operationBtn">
+			<div class="operation_box">
+				<div class="btnItem">
+					<!--<a ng-if="type==11" class="btn_me" href="http://m.cheshangma.cn/vandafile/apk/android-seller-{{newVersionNo}}.apk" target="_blank">去浏览器下载</a>-->
+					<!--<a ng-if="type==20||type==21" class="btn_me" href="itms-apps://itunes.apple.com/cn/app/car-paste-qr/id1218728953?mt=8" target="_blank">去 App Store 下载</a>-->
+					<button ng-if="type==11" class="btn_me" type="button" ng-click="gotoBrowserDownloadAndroidApp()">去浏览器下载</button>
+					<button ng-if="type==20||type==21" class="btn_me" type="button" ng-click="gotoAppStoreDownload()">去 App Store 下载</button>
+				</div>
+				<div class="btnItem" ng-if="versionInfor.usable">
+					<button class="btn_me btn_outline" type="button" ng-click="nextUpdate()">下次更新</button>
+				</div>
+			</div>
+		</div>
+		
+		
+	</ion-content>
+</ion-view>

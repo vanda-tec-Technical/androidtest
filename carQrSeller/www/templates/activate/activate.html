@@ -1,0 +1,58 @@
+<ion-view view-title="账户激活">
+	<ion-header-bar align-title="center" class="header_me">
+		<div class="header_box">
+			<!--<div class="fl heb_box">
+				<a ui-sref="home" class="return_page"><i class="iconfont icon-home"></i></a>
+			</div>
+			<div class="fr heb_box">
+				<a class="user"><i class="iconfont icon-user1"></i></a>
+			</div>-->
+			<h1 class="he_tit">账户激活</h1>
+		</div>
+	</ion-header-bar>
+	<ion-content class="contentContainer">
+		
+		<form>
+			<div class="form_box revisePsw">
+				<!--<div class="un_box" ng-class="({focus:data.a=='us'})">
+					<span class="un_icon fl"> 原 密 码 </span>
+					<div class="un_input"><input type="password" ng-focus="data.a='us'"></div>
+				</div>-->
+				<!--<p class="form_error_info">请输入用户名</p>-->
+				<div class="un_box" ng-class="({focus:data.a=='ps'})">
+					<span class="un_icon fl"> 密 码 </span>
+					<div class="un_input"><input type="password" ng-focus="data.a='ps'" ng-model="vate.psw"></div>
+				</div>
+				<p class="form_error_info">{{vateErr.psw}}</p>
+				<div class="un_box" ng-class="({focus:data.a=='nps'})">
+					<span class="un_icon fl">确认密码</span>
+					<div class="un_input"><input type="password" ng-focus="data.a='nps'" ng-model="vate.okPsw"></div>
+				</div>
+				<p class="form_error_info">{{vateErr.okPsw}}</p>
+			</div>
+			
+			<div class="operationBtn">
+				<div class="operation_box">
+					<!--<div class="btnItem">
+						<a class="btn_me btn_outline" ng-click="revisePswModal.hide()">取消</a>
+					</div>-->
+					<div class="btnItem">
+						<button class="btn_me" ng-click="activateAccount(vate)">确认</button>
+					</div>
+					<!--<div class="btnItem">
+						<a class="btn_me btn_warning" ng-click="deleteNote(noteDetailCon.id)">删除</a>
+					</div>-->
+					<!--<div class="btnItem">
+					<button class="outline" ng-click="">保存</button>
+				</div>-->
+					<!--<div class="btnItem">
+					<button class="outline" ng-click="$ionicGoBack()">返回</button>
+				</div>-->
+				</div>
+			</div>
+		
+		</form>
+		
+	</ion-content>
+	
+</ion-view>

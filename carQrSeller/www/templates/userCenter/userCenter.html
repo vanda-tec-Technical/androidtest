@@ -1,0 +1,38 @@
+<ion-view view-title="个人中心">
+	<ion-header-bar align-title="center" class="header_me">
+		<div class="header_box">
+			<div class="fl heb_box">
+				<a ui-sref="home" class="return_page"><i class="iconfont icon-home"></i></a>
+			</div>
+			<div class="fr heb_box">
+				<!--<a class="user" ng-click="signOut()"><i class="iconfont icon-exit-2"></i></a>-->
+			</div>
+			<h1 class="he_tit">个人中心</h1>
+		</div>
+	</ion-header-bar>
+	<ion-content class="contentContainer">
+		<div class="userInfo">
+			<p>商家名字:<em>{{userInfo.merchantName}}</em></p>
+			<p>联系电话:<em>{{userInfo.phoneNumber}}</em></p>
+			<p>联系人:<em>{{userInfo.contactUser}}</em></p>
+			<p>详细地址:<em>{{userInfo.address}}</em></p>
+			<p>简介:<em>{{userInfo.description}}</em></p>
+		</div>
+		<!--<div class="userInfo money">-->
+			<!--<p>结算金额:<em>￥{{'999.00'}}</em></p>-->
+			<!--<p>已提现金额:<em>￥{{'888.00'}}</em></p>-->
+		<!--</div>-->
+		<div class="userInfo">
+			<a class="account" ui-sref="accountInfo"><i class="fl iconfont icon-zhanghu"></i>账户信息</a>
+			<a class="message" ng-class="{'has_read':hasRead==1}" ui-sref="messages"><i class="fl iconfont icon-huodong"></i>消息列表</a>
+			<a class="revise_psw" ng-click="revisePswModal.show()"><i class="fl iconfont icon-psw"></i>修改密码</a>
+			<a class="sign_out" ng-click="signOut()"><i class="fl iconfont icon-exit-2"></i>退出</a>
+			<a class="return_page2" ng-click="$ionicGoBack()"><i class="fl iconfont icon-return"></i>返回</a>
+		</div>
+	</ion-content>
+	
+	<!--<ion-footer-bar class="footer_me">-->
+		
+	<!--</ion-footer-bar>-->
+
+</ion-view>

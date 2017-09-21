@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+	<title>Title</title>
+	<style>
+		div, body, a, html {
+			margin: 0;
+			padding: 0;
+		}
+		
+		a {
+			display: block;
+			font-size: 12px;
+			line-height: 32px;
+			text-align: center;
+			text-decoration: none;
+			border-bottom: 0.5px solid #123456;
+			border-top: 0.5px solid #1a76b3;
+		}
+		
+		a:link {
+			background-color: #00a8ff;
+			color: #fff;
+		}
+		
+		a:visited {
+			background-color: #fff;
+			color: #00a8ff;
+		}
+		
+		#btn {
+			position: fixed;
+			bottom: 100px;
+			right: 30px;
+			width: 58px;
+			height: 58px;
+			border-radius: 50%;
+			background-color: #ff4c97;
+		}
+		
+		.title {
+			display: block;
+			background-color: #333;
+			line-height: 38px;
+			color: #fff;
+			font-size: 16px;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+
+
+<div class="cst" id="cst">
+
+</div>
+<div id="btn"></div>
+<script>
+    var num = 0;
+    function createHref() {
+        var html = '';
+        for (var i = 0; i < 10; i++) {
+            num++;
+            html += '<a target="_blank" href="http://wap.chunshuitang.com/qqyjy/info/' + num + '.html">' + num + '</a>';
+        }
+        document.getElementById('cst').innerHTML = html;
+    }
+    document.getElementById('btn').onclick = createHref;
+</script>
+
+<div class="title">利用负边距实现多列等高布局</div>
+<!--利用负边距实现多列等高布局-->
+<style>
+	h1 {
+		margin: 0;
+	}
+	
+	.container {
+		overflow: hidden;
+		background-color: #f0f0f0;
+		width: 980px;
+		margin: 0 auto;
+		padding: 5px;
+	}
+	
+	.left {
+		float: left;
+		width: 300px;
+		padding-bottom: 2000px;
+		margin-bottom: -2000px;
+		background-color: #fff;
+		margin-right: 10px;
+	}
+	
+	.right { /*float:right;*/
+		padding-bottom: 2000px;
+		margin-bottom: -2000px;
+		background-color: #fff; /*width:660px;*/
+		overflow: hidden;
+	}
+</style>
+<div class="container">
+	<div class="left">
+		<h1>left</h1>
+	</div>
+	<div class="right">
+		<h1>right</h1>
+		<h1>right</h1>
+		<h1>right</h1>
+		<h1>right</h1>
+		<h1>right</h1>
+		<h1>right</h1>
+	</div>
+</div>
+<div class="title">负边距实现右边距为20，最后一列为0</div>
+<!--负边距实现右边距为20，最后一列为0-->
+<style>
+	ul, li {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	
+	.container2 {
+		width: 860px;
+		margin: 0 auto;
+		border: 5px solid #ff3500;
+	}
+	
+	.lists {
+		margin-right: -20px;
+		overflow: hidden;
+	}
+	
+	.item {
+		width: 200px;
+		margin: 20px 20px 20px 0;
+		height: 200px;
+		float: left;
+		background-color: #f0f0f0;
+	}
+</style>
+<div class="container2">
+	<ul class="lists">
+		<li class="item"></li>
+		<li class="item"></li>
+		<li class="item"></li>
+		<li class="item"></li>
+		<li class="item"></li>
+	</ul>
+</div>
+
+<div class="title">table标签</div>
+<style>
+	table, tr, td, th {
+		border: 1px solid #aaa;
+	}
+	
+	.container3 {
+		width: 400px;
+		margin: 30px auto;
+		overflow: hidden;
+	}
+	
+	.tab {
+		float: left;
+	}
+	
+	.tab1 {
+		float: left;
+		margin: 0 30px;
+		border-collapse: collapse;
+	}
+	
+	/* // 合并边框*/
+	.tab2 {
+		float: left;
+		border-spacing: 0;
+	}
+</style>
+<div class="container3">
+	
+	<table class="tab">
+		<tr>
+			<th>aaa</th>
+			<th>bbb</th>
+			<th>ccc</th>
+		</tr>
+		<tr>
+			<td>111</td>
+			<td>222</td>
+			<td>333</td>
+		</tr>
+		<tr>
+			<td>444</td>
+			<td>555</td>
+			<td>666</td>
+		</tr>
+		<tr>
+			<td>777</td>
+			<td>888</td>
+			<td>999</td>
+		</tr>
+	</table>
+	
+	<table class="tab1">
+		<tr>
+			<th>aaa</th>
+			<th>bbb</th>
+			<th>ccc</th>
+		</tr>
+		<tr>
+			<td>111</td>
+			<td>222</td>
+			<td>333</td>
+		</tr>
+		<tr>
+			<td>444</td>
+			<td>555</td>
+			<td>666</td>
+		</tr>
+		<tr>
+			<td>777</td>
+			<td>888</td>
+			<td>999</td>
+		</tr>
+	</table>
+	
+	<table class="tab2">
+		<tr>
+			<th>aaa</th>
+			<th>bbb</th>
+			<th>ccc</th>
+		</tr>
+		<tr>
+			<td>111</td>
+			<td>222</td>
+			<td>333</td>
+		</tr>
+		<tr>
+			<td>444</td>
+			<td>555</td>
+			<td>666</td>
+		</tr>
+		<tr>
+			<td>777</td>
+			<td>888</td>
+			<td>999</td>
+		</tr>
+	</table>
+</div>
+
+<div class="title">水平居中:父元素和子元素宽度未知</div>
+<!--  -->
+<style>
+	.container4 {
+		background-color: #a0a0a0;
+		display: flex;
+		justify-content: center;
+	}
+	
+	.box {
+		padding: 50px;
+		background-color: #ff3500;
+	}
+</style>
+<div class="container4">
+	<div class="box">box</div>
+</div>
+
+<div class="title">垂直居中:父元素和子元素宽度未知</div>
+<style>
+	.main {
+		margin: 30px;
+		height: 500px;
+	}
+	
+	.container5 {
+		height: 100%;
+		background-color: #a0a0a0;
+		display: flex;
+		align-items: center;
+	}
+	
+	.box1 {
+		padding: 50px;
+		background-color: #ff3500;
+	}
+</style>
+<div class="main">
+	<div class="container5">
+		<div class="box1">box</div>
+	</div>
+</div>
+
+<div class="title">水平垂直居中:父元素和子元素宽高未知</div>
+
+<style>
+	
+	
+	.container6 {
+		height: 100%;
+		background-color: #a0a0a0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	
+	.box1 {
+		padding: 50px;
+		background-color: #ff3500;
+	}
+</style>
+<div class="main">
+	<div class="container6">
+		<div class="box1">box</div>
+	</div>
+</div>
+
+<div class="title">一列定宽 + 一列自适应</div>
+
+<style>
+	.container10 {
+		background-color: #a0a0a0;
+		padding: 5px;
+		overflow: hidden;
+	}
+	
+	.container10:after {
+		content: '';
+		zoom: 1;
+		display: block;
+		height: 0;
+		clear: both;
+	}
+	
+	.left_box {
+		width: 200px;
+		height: 200px;
+		background-color: #00a8ff;
+		float: left;
+	}
+	
+	.right_box {
+		margin-left: 220px;
+		background-color: #fff;
+	}
+</style>
+<div class="container10">
+	<div class="left_box">
+		<h1>定宽</h1>
+	</div>
+	<div class="left_box">
+		<h1>定宽</h1>
+	</div>
+	<div class="right_box">
+		<h1>自适应</h1>
+	</div>
+</div>
+
+<div class="title">对方法1的改进</div>
+<style>
+	.container11 {
+		background-color: #a0a0a0;
+		padding: 5px; /*overflow:hidden;*/
+	}
+	
+	.left_box1 {
+		position: relative;
+	}
+	
+	.container11:after {
+		content: "";
+		display: block;
+		width: 100%;
+		height: 0;
+		clear: both;
+	}
+	
+	.right_box_con {
+		float: right;
+		width: 100%;
+		margin-left: -200px;
+		background-color: #fff;
+	}
+</style>
+<div class="container11">
+	<div class="left_box left_box1">
+		<h1>left</h1>
+	</div>
+	<div class="left_box left_box1">
+		<h1>left</h1>
+	</div>
+	<div class="right_box_con">
+		<div class="right_box">
+			<h1>right</h1>
+			<h1>right</h1>
+		</div>
+	</div>
+</div>
+<div class="title">table布局</div>
+<style>
+	.con13 {
+		display: table;
+		width: 100%;
+		table-layout: fixed;
+		background-color:#123456;
+		/*padding:5px;*/
+	}
+	.le_box{display:table-cell;width:200px;height:200px;padding-left:20px;background-color:#00a8ff;}
+	.ri_box{display:table-cell;background-color:#fff;}
+</style>
+<div class="con13">
+	<div class="le_box"><h1>left</h1></div>
+	<div class="le_box"><h1>left</h1></div>
+	<div class="ri_box"><h1>right</h1></div>
+</div>
+
+<div class="title">flex</div>
+<style>
+	.con14{display:flex;background-color:#123456;}
+	.le_box1{width:200px;height:200px;margin-right:20px;background-color:#00a8ff;}
+	.ri_box1{flex:1;background-color:#fff;}
+</style>
+<div class="con14">
+	<div class="le_box1">
+		<h1>left</h1>
+	</div>
+	<div class="le_box1">
+		<h1>left</h1>
+	</div>
+	<div class="ri_box1">
+		<h1>right</h1>
+	</div>
+</div>
+
+<div style="height:500px;"></div>
+</body>
+</html>
