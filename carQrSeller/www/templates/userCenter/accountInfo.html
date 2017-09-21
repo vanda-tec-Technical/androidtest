@@ -1,0 +1,68 @@
+<ion-view view-title="账户信息">
+	<ion-header-bar align-title="center" class="header_me">
+		<div class="header_box">
+			<div class="fl heb_box">
+				<!--<a ui-sref="home" class="return_page"><i class="iconfont icon-home"></i></a>-->
+			</div>
+			<div class="fr heb_box">
+				<!--<a class="user" ng-click="signOut()"><i class="iconfont icon-exit-2"></i></a>-->
+			</div>
+			<h1 class="he_tit">账户信息</h1>
+		</div>
+	</ion-header-bar>
+	<ion-content class="contentContainer">
+		<!--<div class="money_num_box">
+			<div class="surplus_money">
+				<p class="num">999.00</p>
+				<p class="text">待结算金额（元）</p>
+			</div>
+			<div class="me_money">
+				<p class="num">888.00</p>
+				<p class="text">已提现金额（元）</p>
+			</div>
+		</div>-->
+		
+		
+		
+		<div class="money_num_box2">
+			<div class="surplus_money">
+				<p class="num">{{accountData.smoney | number:2}}</p>
+				<p class="m_text">待结算金额（元）</p>
+			</div>
+			<div class="me_money">
+				<p class="num">{{accountData.amoney | number:2}}</p>
+				<p class="m_text">已结算金额（元）</p>
+			</div>
+		</div>
+		
+		<div class="account_other_info" ng-if="accountData.receiptAccount.receiptType=='PAYTYPE_ALIPAY'||accountData.receiptAccount.receiptType=='PAYTYPE_WECHAT'">
+			<p><em>平台名称:</em>{{accountData.receiptAccount.receiptName}}</p>
+			<p><em>用户姓名:</em>{{accountData.receiptAccount.name}}</p>
+			<p><em>平台账号:</em>{{accountData.receiptAccount.account}}</p>
+		</div>
+		
+		<div class="account_other_info" ng-if="accountData.receiptAccount.receiptType=='PAYTYPE_BANK'">
+			<p><em>开户银行:</em>{{accountData.receiptAccount.receiptName}}</p>
+			<p><em>开户人:</em>{{accountData.receiptAccount.name}}</p>
+			<p><em>银行账号:</em>{{accountData.receiptAccount.account}}</p>
+			<p><em>开户网点:</em>{{accountData.receiptAccount.bankSite}}</p>
+		</div>
+		
+	</ion-content>
+	<ion-footer-bar class="footer_me">
+		<div class="opera_box">
+			<div class="btn_item">
+				<button class="btn_me2 white_btn" ng-click="$ionicGoBack()">返回</button>
+			</div>
+			<!--<div class="btn_item">
+				<button class="btn_me2 orange_btn" type="button" ng-click="cancel()">作废</button>
+			</div>
+			<div class="btn_item">
+				<button class="btn_me2" type="button" ng-click="harvest()">收费</button>
+			</div>-->
+			<!--<div class="btn_item">
+				<button class="btn_me2 green_btn">选择服务选</button>
+			</div>-->
+		</div>
+	</ion-footer-bar>
+</ion-view>

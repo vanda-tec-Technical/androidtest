@@ -1,0 +1,154 @@
+<ion-view view-title="首页">
+	<ion-header-bar align-title="center" class="header_me">
+		<div class="header_box">
+			<div class="fl heb_box">
+				<!--<a ui-sref="home" class="return_page"><i class="iconfont icon-home"></i></a>-->
+			</div>
+			<div class="fr heb_box">
+				<a class="user" ui-sref="userCenter"><i class="iconfont icon-user1"></i></a>
+			</div>
+			<h1 class="he_tit">订单列表</h1>
+		</div>
+	</ion-header-bar>
+	<ion-content class="contentContainer">
+		<ion-refresher
+				pulling-text="下拉刷新..."
+				on-refresh="doRefresh()">
+		</ion-refresher>
+		<!--<p>用户信息：{{userInfos}}</p>
+		<p>商家坐标经纬度：{{sellerPosint}}</p>
+		<p>定位坐标：{{long+','+ lat}}</p>
+		<p>用户当前坐标BD：{{userPoint}}</p>
+		<p>商家坐标BD：{{sellerPoint}}</p>
+		<p>转换后的坐标：{{locationInfoL}}</p>
+		<p>距离:{{distance}}</p>-->
+		<!--<p>版本信息：{{ver}}</p>-->
+		
+		<div class="options_box clearfix">
+			<select class="selectOrderType fl" ng-model="orderType" ng-change="selectedOrderType()"
+					ng-options="item.id as item.name for item in orderTypeList"></select>
+			<div class="order_state_box">
+				<div class="tab_box">
+					<a href="" class="tab_tit" ng-click="choiceTab('1')" ng-class="({active:orderStatus=='1'})">待支付</a>
+					<a href="" class="tab_tit" ng-click="choiceTab('2')" ng-class="({active:orderStatus=='2'})">已支付</a>
+					<a href="" class="tab_tit" ng-click="choiceTab('0')" ng-class="({active:orderStatus=='0'})">全部</a>
+				</div>
+			</div>
+		</div>
+		
+		<p class="hasNullData" ng-if="listsData.length==0">暂时还没有订单数据喔 ^_^</p>
+		
+		<ul class="list_box" ng-if="listsData.length!=0">
+			
+			<li class="list_item" ng-repeat="item in listsData">
+				<a href="" class="order_info">
+					<p class="order_price fr" ng-class="{hasOS:orderStatus=='0'}"><span>￥{{item.total}}</span><span
+							ng-if="orderStatus=='0'">{{item.statusDesc}}</span></p>
+					<p class="tit_box">
+						<span class="car_num fl">{{item.carNumber}}</span>
+						<span class="fl order_num">{{item.innerOrderId}}</span>
+					</p>
+					<p class="order_other_info">
+						<span class="order_type fl">{{item.categoryMctApp}}</span>
+						<!--<span class="order_type fl">{{item.productPriceMctApp}}</span>-->
+						<!--<span class="fl address">武侯区</span>-->
+						<span class="order_time">{{item.createDate}}</span>
+					</p>
+				</a>
+			</li>
+			<!--<li class="list_item">
+				<a href="" class="order_info">
+					<p class="order_price fr">￥20.00</p>
+					<p class="tit_box">
+						<span class="car_num fl">川A0000</span>
+						<span class="fl order_num">565859565859</span>
+					</p>
+					<p class="order_other_info">
+						<span class="order_type fl">停车</span>
+						<span class="order_type fl">5元/小时</span>
+						&lt;!&ndash;<span class="order_type fl">3</span>&ndash;&gt;
+						&lt;!&ndash;<span class="fl address">武侯区</span>&ndash;&gt;
+						<span class="order_time">2016-09-08 09:08</span>
+					</p>
+				</a>
+			</li>
+			<li class="list_item">
+				<a href="" class="order_info">
+					<p class="order_price fr">￥200.00</p>
+					<p class="tit_box">
+						<span class="car_num fl">川A0000</span>
+						<span class="fl order_num">565859565859</span>
+					</p>
+					<p class="order_other_info">
+						<span class="order_type fl">保养</span>
+						<span class="order_type fl">200元/次</span>
+						&lt;!&ndash;<span class="fl address">武侯区</span>&ndash;&gt;
+						<span class="order_time">2016-09-08 09:08</span>
+					</p>
+				</a>
+			</li>
+			<li class="list_item">
+				<a href="" class="order_info">
+					<p class="order_price fr">￥800.00</p>
+					<p class="tit_box">
+						<span class="car_num fl">川A0000</span>
+						<span class="fl order_num">565859565859</span>
+					</p>
+					<p class="order_other_info">
+						<span class="order_type fl">美容</span>
+						<span class="order_type fl">200元/次</span>
+						&lt;!&ndash;<span class="fl address">店名</span>&ndash;&gt;
+						<span class="order_time">2016-09-08 09:08</span>
+					</p>
+				</a>
+			</li>-->
+		
+		</ul>
+		
+		<!--<p>二维码信息:{{a}}</p>-->
+		<!--<p>错误信息:{{barcodeDataErr}}</p>-->
+		
+		
+		<!--<div class="operationBtn">
+			<div class="operation_box">
+				<div class="btnItem">
+					<button class="btn_me btn_outline" ng-click="cation()">通知</button>
+				</div>
+				&lt;!&ndash;<div class="btnItem">
+					<a class="btn_me" ui-sref="noteEdit({id:noteDetailCon.id})">编辑</a>
+				</div>
+				<div class="btnItem">
+					<a class="btn_me btn_warning" ng-click="deleteNote(noteDetailCon.id)">删除</a>
+				</div>&ndash;&gt;
+				&lt;!&ndash;<div class="btnItem">
+					<button class="outline" ng-click="">保存</button>
+				</div>&ndash;&gt;
+				&lt;!&ndash;<div class="btnItem">
+					<button class="outline" ng-click="$ionicGoBack()">返回</button>
+				</div>&ndash;&gt;
+			</div>
+		</div>-->
+		<ion-infinite-scroll on-infinite="loadMore()" distance="5%" ng-if="!hasLoadMore"></ion-infinite-scroll>
+		
+		
+		<!--<button ng-click="loadMore()" type="button">获取</button>-->
+		<!--<button ng-click="scanningQR()" type="button">扫码</button>-->
+	</ion-content>
+	
+	<ion-footer-bar class="footer_me">
+		<!--<div class="operation_con">-->
+		<div class="opera_box">
+			<div class="btn_item">
+				<button class="btn_me2" type="button" ng-click="scanningQR()">扫码</button>
+			</div>
+			<!--<div class="btn_item">
+				<button class="btn_me2 green_btn" ng-click="takeCarQr()">取车扫码</button>
+			</div>-->
+			<!--<div class="btn_item">
+				<button class="btn_me2 green_btn">选择服务选</button>
+			</div>-->
+		</div>
+		<!--</div>-->
+	</ion-footer-bar>
+
+</ion-view>
